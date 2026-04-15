@@ -1479,3 +1479,9 @@ footer {
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
 }
+/* Force 3 columns for Deployed Projects on Desktop Views & Tablets */
+@media (min-width: 800px) {
+  .deployed-projects-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
