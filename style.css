@@ -1473,3 +1473,9 @@ footer {
   .contact-form button, .project-links .project-link-btn, .hero-actions .btn { width: 100%; }
   .deployed-icon { width: 64px; height: 64px; font-size: 1.5rem; }
 }
+/* Force 3 columns for Deployed Projects on iPad Pro and larger tablets */
+@media (min-width: 830px) {
+  .deployed-projects-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
