@@ -3666,3 +3666,21 @@ section,
   80%  { top: 584px; opacity: 1; }
   100% { top: 698px; opacity: 0; }
 }
+.deployed-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* Changed from repeat(2...) to 3 */
+  gap: 22px;
+}
+
+/* Ensure it stacks on tablets and phones */
+@media (max-width: 1100px) {
+  .deployed-projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .deployed-projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
