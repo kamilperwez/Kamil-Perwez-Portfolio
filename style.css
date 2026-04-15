@@ -1529,3 +1529,24 @@ footer {
   white-space: nowrap !important;
   word-break: normal !important;
 }
+/* Perfectly center the title, subtitle, and description inside Deployed Projects */
+.deployed-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.deployed-top {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  width: 100%;
+}
+
+.deployed-card p {
+  text-align: center;
+  margin-bottom: 16px; /* Adds a little breathing room above the buttons */
+}
