@@ -1485,3 +1485,22 @@ footer {
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
 }
+/* Fix squished buttons and word breaking */
+.project-link-btn,
+.btn {
+  white-space: nowrap !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
+/* Adjust card internals for iPad and Desktop View to prevent squishing */
+@media (min-width: 800px) and (max-width: 1150px) {
+  .deployed-card {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+    justify-items: center !important;
+  }
+  .deployed-card .project-links {
+    justify-content: center !important;
+  }
+}
