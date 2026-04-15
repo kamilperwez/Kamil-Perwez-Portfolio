@@ -1550,3 +1550,41 @@ footer {
   text-align: center;
   margin-bottom: 16px; /* Adds a little breathing room above the buttons */
 }
+/* ========================================================
+   UNIVERSAL CENTER ALIGNMENT FOR DEPLOYED PROJECTS
+   (Overrides all mobile/desktop flex-start rules)
+======================================================== */
+
+.deployed-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.deployed-content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.deployed-top {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+}
+
+.deployed-card p {
+  text-align: center !important;
+  margin-bottom: 18px !important;
+}
+
+.deployed-card .project-links {
+  justify-content: center !important;
+  width: 100% !important;
+}
