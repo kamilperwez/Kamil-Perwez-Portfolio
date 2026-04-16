@@ -1592,26 +1592,28 @@ footer {
    ANIMATION FIXES: ML GRID, ABOUT SCENE, & SKILLS SCENE
 ======================================================== */
 
-/* 1. Make ML Layer columns mathematically uniform (20% slices) */
-.projects-ml-wrap .ml-scene-pro::before {
-  background:
-    linear-gradient(90deg, transparent 19.8%, rgba(96,165,250,0.12) 20%, transparent 20.2%),
-    linear-gradient(90deg, transparent 39.8%, rgba(96,165,250,0.12) 40%, transparent 40.2%),
-    linear-gradient(90deg, transparent 59.8%, rgba(96,165,250,0.12) 60%, transparent 60.2%),
-    linear-gradient(90deg, transparent 79.8%, rgba(96,165,250,0.12) 80%, transparent 80.2%) !important;
-}
+/* 1. Make ML Layer columns mathematically uniform (DESKTOP ONLY) */
+@media (min-width: 901px) {
+  .projects-ml-wrap .ml-scene-pro::before {
+    background:
+      linear-gradient(90deg, transparent 19.8%, rgba(96,165,250,0.12) 20%, transparent 20.2%),
+      linear-gradient(90deg, transparent 39.8%, rgba(96,165,250,0.12) 40%, transparent 40.2%),
+      linear-gradient(90deg, transparent 59.8%, rgba(96,165,250,0.12) 60%, transparent 60.2%),
+      linear-gradient(90deg, transparent 79.8%, rgba(96,165,250,0.12) 80%, transparent 80.2%) !important;
+  }
 
-/* Perfect centering within the uniform columns */
-.projects-ml-wrap .ml-label-input, .projects-ml-wrap .ml-inputs { left: 10% !important; }
-.projects-ml-wrap .ml-label-hidden-1, .projects-ml-wrap .ml-layer-1 { left: 30% !important; }
-.projects-ml-wrap .ml-label-hidden-2, .projects-ml-wrap .ml-layer-2 { left: 50% !important; }
-.projects-ml-wrap .ml-label-hidden-3, .projects-ml-wrap .ml-layer-3 { left: 70% !important; }
-.projects-ml-wrap .ml-label-output, .projects-ml-wrap .ml-output { left: 90% !important; }
+  /* Perfect horizontal centering within the uniform columns */
+  .projects-ml-wrap .ml-label-input, .projects-ml-wrap .ml-inputs { left: 10% !important; }
+  .projects-ml-wrap .ml-label-hidden-1, .projects-ml-wrap .ml-layer-1 { left: 30% !important; }
+  .projects-ml-wrap .ml-label-hidden-2, .projects-ml-wrap .ml-layer-2 { left: 50% !important; }
+  .projects-ml-wrap .ml-label-hidden-3, .projects-ml-wrap .ml-layer-3 { left: 70% !important; }
+  .projects-ml-wrap .ml-label-output, .projects-ml-wrap .ml-output { left: 90% !important; }
 
-/* Keep Output Block cleanly inside its column bounds */
-.projects-ml-wrap .ml-output {
-  width: 140px !important;
-  padding: 12px 10px !important;
+  /* Keep Output Block cleanly inside its column bounds */
+  .projects-ml-wrap .ml-output {
+    width: 140px !important;
+    padding: 12px 10px !important;
+  }
 }
 
 /* Sync Data Signals to new column tracks */
