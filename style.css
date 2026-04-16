@@ -1898,3 +1898,179 @@ footer {
     top: 12px;
   }
 }
+/* ========================================================
+   ARCADE MINI-GAME STYLES (Responsive Fix)
+======================================================== */
+
+.arcade-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 10, 22, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  padding: 15px; /* Prevents touching the extreme edges of the phone */
+  box-sizing: border-box;
+}
+
+.arcade-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.arcade-content {
+  background: linear-gradient(180deg, #0f172a, #020617);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  border-radius: 20px;
+  padding: 24px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh; /* STRICT HEIGHT LIMIT: 90% of screen height */
+  display: flex;
+  flex-direction: column; /* Allows internal elements to shrink properly */
+  box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 30px rgba(167, 139, 250, 0.15);
+  transform: scale(0.95) translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.arcade-modal.active .arcade-content {
+  transform: scale(1) translateY(0);
+}
+
+.arcade-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  color: #c4b5fd;
+  font-family: "Inter", sans-serif;
+}
+
+.arcade-header h3 { font-size: 1.1rem; margin-bottom: 4px; }
+
+.close-arcade {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  color: #cbd5e1;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: grid;
+  place-items: center;
+}
+
+.close-arcade:hover { background: rgba(248, 113, 113, 0.2); color: #fca5a5; }
+
+.arcade-screen-wrap {
+  position: relative;
+  flex: 1; /* Allows the game wrapper to shrink on short phones */
+  min-height: 0; /* Crucial for flex shrinking to work */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 3px solid #1e293b;
+  box-shadow: inset 0 0 20px rgba(0,0,0,1);
+  background: #05100a;
+}
+
+#arcadeCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 450px; 
+  max-height: 450px; 
+  object-fit: contain; /* Guarantees the canvas stays a perfect square */
+  aspect-ratio: 1 / 1;
+}
+
+.arcade-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 16, 10, 0.85);
+  color: #4ade80;
+  font-family: monospace;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.arcade-overlay.hidden { display: none; }
+
+.arcade-overlay .small-text {
+  font-size: 0.85rem;
+  margin-top: 10px;
+  color: #22c55e;
+  font-weight: normal;
+}
+
+.arcade-footer {
+  margin-top: 16px;
+  text-align: right;
+  font-family: monospace;
+  font-size: 1.2rem;
+  color: #4ade80;
+}
+
+/* Add extra tightening just for small phones */
+@media (max-width: 600px) {
+  .arcade-content {
+    padding: 16px;
+    max-height: 92vh;
+  }
+  .arcade-header { margin-bottom: 12px; }
+  .arcade-footer { margin-top: 12px; font-size: 1.1rem; }
+  .arcade-header h3 { font-size: 1rem; }
+}
+/* ========================================================
+   SMARTPHONE ML NETWORK FIX (Force Vertical Centering)
+   This overrides the desktop columns to keep mobile centered
+======================================================== */
+@media (max-width: 900px) {
+  /* Force all labels, layers, and the output block to the exact center */
+  .projects-ml-wrap .ml-label-input, 
+  .projects-ml-wrap .ml-inputs,
+  .projects-ml-wrap .ml-label-hidden-1, 
+  .projects-ml-wrap .ml-layer-1,
+  .projects-ml-wrap .ml-label-hidden-2, 
+  .projects-ml-wrap .ml-layer-2,
+  .projects-ml-wrap .ml-label-hidden-3, 
+  .projects-ml-wrap .ml-layer-3,
+  .projects-ml-wrap .ml-label-output, 
+  .projects-ml-wrap .ml-output {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+  }
+
+  /* Keep the glowing dots arranged in neat horizontal rows */
+  .projects-ml-wrap .ml-inputs, 
+  .projects-ml-wrap .ml-layer {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 16px !important;
+    width: auto !important;
+  }
+
+  /* Prevent the dots from flying around inside their row */
+  .projects-ml-wrap .ml-dot, 
+  .projects-ml-wrap .neuron {
+    position: static !important;
+    transform: none !important;
+    margin: 0 !important;
+  }
+}
