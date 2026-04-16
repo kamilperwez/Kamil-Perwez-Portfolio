@@ -1592,28 +1592,26 @@ footer {
    ANIMATION FIXES: ML GRID, ABOUT SCENE, & SKILLS SCENE
 ======================================================== */
 
-/* 1. Make ML Layer columns mathematically uniform (DESKTOP ONLY) */
-@media (min-width: 901px) {
-  .projects-ml-wrap .ml-scene-pro::before {
-    background:
-      linear-gradient(90deg, transparent 19.8%, rgba(96,165,250,0.12) 20%, transparent 20.2%),
-      linear-gradient(90deg, transparent 39.8%, rgba(96,165,250,0.12) 40%, transparent 40.2%),
-      linear-gradient(90deg, transparent 59.8%, rgba(96,165,250,0.12) 60%, transparent 60.2%),
-      linear-gradient(90deg, transparent 79.8%, rgba(96,165,250,0.12) 80%, transparent 80.2%) !important;
-  }
+/* 1. Make ML Layer columns mathematically uniform (20% slices) */
+.projects-ml-wrap .ml-scene-pro::before {
+  background:
+    linear-gradient(90deg, transparent 19.8%, rgba(96,165,250,0.12) 20%, transparent 20.2%),
+    linear-gradient(90deg, transparent 39.8%, rgba(96,165,250,0.12) 40%, transparent 40.2%),
+    linear-gradient(90deg, transparent 59.8%, rgba(96,165,250,0.12) 60%, transparent 60.2%),
+    linear-gradient(90deg, transparent 79.8%, rgba(96,165,250,0.12) 80%, transparent 80.2%) !important;
+}
 
-  /* Perfect horizontal centering within the uniform columns */
-  .projects-ml-wrap .ml-label-input, .projects-ml-wrap .ml-inputs { left: 10% !important; }
-  .projects-ml-wrap .ml-label-hidden-1, .projects-ml-wrap .ml-layer-1 { left: 30% !important; }
-  .projects-ml-wrap .ml-label-hidden-2, .projects-ml-wrap .ml-layer-2 { left: 50% !important; }
-  .projects-ml-wrap .ml-label-hidden-3, .projects-ml-wrap .ml-layer-3 { left: 70% !important; }
-  .projects-ml-wrap .ml-label-output, .projects-ml-wrap .ml-output { left: 90% !important; }
+/* Perfect centering within the uniform columns */
+.projects-ml-wrap .ml-label-input, .projects-ml-wrap .ml-inputs { left: 10% !important; }
+.projects-ml-wrap .ml-label-hidden-1, .projects-ml-wrap .ml-layer-1 { left: 30% !important; }
+.projects-ml-wrap .ml-label-hidden-2, .projects-ml-wrap .ml-layer-2 { left: 50% !important; }
+.projects-ml-wrap .ml-label-hidden-3, .projects-ml-wrap .ml-layer-3 { left: 70% !important; }
+.projects-ml-wrap .ml-label-output, .projects-ml-wrap .ml-output { left: 90% !important; }
 
-  /* Keep Output Block cleanly inside its column bounds */
-  .projects-ml-wrap .ml-output {
-    width: 140px !important;
-    padding: 12px 10px !important;
-  }
+/* Keep Output Block cleanly inside its column bounds */
+.projects-ml-wrap .ml-output {
+  width: 140px !important;
+  padding: 12px 10px !important;
 }
 
 /* Sync Data Signals to new column tracks */
@@ -1695,10 +1693,19 @@ footer {
   border: 1px solid rgba(167, 139, 250, 0.3);
   border-radius: 20px;
   padding: 24px;
-  width: 350px;
+  width: 500px; /* Increased from 350px */
+  max-width: 95vw; /* Prevents overflow on mobile */
   box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 30px rgba(167, 139, 250, 0.15);
   transform: scale(0.95) translateY(20px);
   transition: transform 0.3s ease;
+}
+
+#arcadeCanvas {
+  display: block;
+  background: #05100a;
+  width: 100%; /* Ensures it scales down on small screens */
+  height: auto;
+  aspect-ratio: 1 / 1;
 }
 
 .arcade-modal.active .arcade-content {
@@ -1737,10 +1744,7 @@ footer {
   box-shadow: inset 0 0 20px rgba(0,0,0,1);
 }
 
-#arcadeCanvas {
-  display: block;
-  background: #05100a; /* Dark green CRT background */
-}
+
 
 .arcade-overlay {
   position: absolute;
@@ -1776,4 +1780,121 @@ footer {
 
 @media (max-width: 600px) {
   .arcade-btn { margin-right: 10px; }
+}
+.game-selector {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.game-tab {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #cbd5e1;
+  padding: 4px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.game-tab:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.game-tab.active {
+  background: rgba(167, 139, 250, 0.2);
+  border-color: #a78bfa;
+  color: #fff;
+  font-weight: bold;
+}
+/* ========================================================
+   EXPERIENCE TIMELINE ANIMATIONS & RESPONSIVENESS
+======================================================== */
+.timeline-item {
+  position: relative;
+  overflow: visible; /* Changed from hidden so the glow effect isn't cut off */
+  padding-left: 36px;
+}
+
+/* Background track line */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Flowing energy line that animates down */
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0;
+  width: 2px;
+  height: 0;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  transition: height 1s ease;
+}
+
+/* Trigger animation when element scrolls into view (using your existing .show class) */
+.timeline-item.show::after {
+  animation: timelineFlow 2s ease-out forwards;
+}
+
+/* The glowing dot */
+.timeline-dot {
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #67e8f9;
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.8), 0 0 20px rgba(96, 165, 250, 0.4);
+  z-index: 2;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.timeline-item.show .timeline-dot {
+  animation: 
+    popDot 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 0.4s, 
+    pulseDot 2s infinite 1s;
+}
+
+@keyframes timelineFlow {
+  0% { height: 0; opacity: 0; }
+  10% { opacity: 1; }
+  100% { height: 100%; opacity: 1; }
+}
+
+@keyframes popDot {
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulseDot {
+  0%, 100% { box-shadow: 0 0 10px rgba(34, 211, 238, 0.8), 0 0 20px rgba(96, 165, 250, 0.4); transform: scale(1); }
+  50% { box-shadow: 0 0 20px rgba(34, 211, 238, 1), 0 0 40px rgba(96, 165, 250, 0.6); transform: scale(1.2); }
+}
+
+/* Mobile Responsiveness specifically for the Timeline */
+@media (max-width: 640px) {
+  .timeline-item {
+    padding-left: 26px;
+  }
+  .timeline-item::before,
+  .timeline-item::after {
+    left: 2px;
+  }
+  .timeline-dot {
+    left: -2px;
+    width: 10px;
+    height: 10px;
+    top: 12px;
+  }
 }
