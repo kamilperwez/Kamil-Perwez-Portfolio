@@ -227,7 +227,7 @@ header {
   color: var(--text);
 }
 
-.nav-links a::after {
+.nav-links > a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -238,9 +238,76 @@ header {
   transition: width 0.28s ease;
 }
 
-.nav-links a:hover::after,
-.nav-links a.active::after {
+.nav-links > a:hover::after,
+.nav-links > a.active::after {
   width: 100%;
+}
+
+/* Dropdown CSS for Projects in Header */
+.nav-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(15px);
+  background: rgba(10, 18, 34, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  min-width: 200px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  z-index: 1100;
+}
+
+.nav-dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(10px);
+}
+
+.nav-dropdown > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  transition: width 0.28s ease;
+}
+
+.nav-dropdown:hover > a::after,
+.nav-dropdown > a.active::after {
+  width: 100%;
+}
+
+.dropdown-content a {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.92rem !important;
+  color: var(--muted) !important;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-content a::after {
+  display: none !important;
+}
+
+.dropdown-content a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text) !important;
 }
 
 .menu-btn {
@@ -1340,6 +1407,11 @@ footer {
 @media (max-width: 920px) {
   .nav-links { position: absolute; top: 76px; left: 0; right: 0; display: none; flex-direction: column; align-items: flex-start; gap: 18px; padding: 22px 4%; background: rgba(8, 12, 24, 0.96); border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
   .nav-links.open { display: flex; }
+  
+  .nav-dropdown { flex-direction: column; align-items: flex-start; width: 100%; }
+  .dropdown-content { position: relative; top: 0; left: 0; transform: none !important; width: 100%; background: rgba(255, 255, 255, 0.03); box-shadow: none; margin-top: 10px; display: none; opacity: 1; visibility: visible; }
+  .nav-dropdown:hover .dropdown-content, .nav-dropdown:focus-within .dropdown-content { display: flex; }
+
   .menu-btn { display: inline-flex; }
   .about-scene { min-height: 380px; }
   .about-card-1 { top: 16px; left: 6%; }
@@ -2073,4 +2145,111 @@ footer {
     transform: none !important;
     margin: 0 !important;
   }
+}
+
+/* ========================================================
+   NEW ENHANCEMENTS FOR EDUCATION AND PROJECTS
+======================================================== */
+
+/* Education Enhancements */
+.achievement-card {
+  padding: 16px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  transition: transform 0.2s ease, background 0.2s;
+}
+.achievement-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(96, 165, 250, 0.3);
+}
+.achievement-icon {
+  font-size: 1.8rem;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.05);
+  flex-shrink: 0;
+}
+.icon-gold { color: #facc15; background: rgba(250, 204, 21, 0.1); }
+.icon-blue { color: #60a5fa; background: rgba(96, 165, 250, 0.1); }
+
+.cert-group h4 {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Project Enhancements */
+.project-banner {
+  height: 140px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  border: 1px solid rgba(255,255,255,0.05);
+  position: relative;
+  overflow: hidden;
+}
+.project-banner i {
+  z-index: 2;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+}
+.project-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+  z-index: 1;
+}
+
+/* Live Badge for Deployed Projects */
+.live-badge {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  border: 2px solid #07111f;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 10;
+}
+.live-dot {
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Make Deployed Cards Pop More */
+.deployed-card {
+  position: relative;
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.6));
+  border: 1px solid rgba(96, 165, 250, 0.2);
+}
+.deployed-card:hover {
+  box-shadow: 0 20px 40px rgba(96, 165, 250, 0.15), 0 0 0 1px rgba(96, 165, 250, 0.4);
 }

@@ -76,7 +76,15 @@
       <nav class="nav-links" id="navLinks">
         <a href="#about"><i class="fa-regular fa-user"></i> About</a>
         <a href="#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
-        <a href="#projects"><i class="fa-solid fa-code"></i> Projects</a>
+        
+        <div class="nav-dropdown">
+          <a href="#projects"><i class="fa-solid fa-code"></i> Projects <i class="fa-solid fa-chevron-down" style="font-size: 0.75em; margin-left: 4px;"></i></a>
+          <div class="dropdown-content">
+            <a href="#projects"><i class="fa-solid fa-diagram-project" style="width: 20px;"></i> Featured Projects</a>
+            <a href="#deployed-projects"><i class="fa-solid fa-rocket" style="width: 20px;"></i> Deployed Projects</a>
+          </div>
+        </div>
+
         <a href="#skills"><i class="fa-solid fa-layer-group"></i> Skills</a>
         <a href="#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
         <a href="#contact"><i class="fa-regular fa-paper-plane"></i> Contact</a>
@@ -337,8 +345,11 @@
 
         <div class="projects-grid">
           <article class="project-card reveal">
+            <div class="project-banner" style="background: linear-gradient(135deg, #1e3a8a, #312e81); color: #93c5fd;">
+              <i class="fa-solid fa-network-wired"></i>
+            </div>
             <div class="project-top">
-              <h3><i class="fa-solid fa-chart-simple"></i> Machine Learning Models</h3>
+              <h3>Machine Learning Models</h3>
               <span class="project-stack">Python • Scikit-Learn • Pandas</span>
             </div>
             <p>Developed supervised learning models for multiple prediction tasks and compared 5 to 8 models per project to identify the best performer.</p>
@@ -353,8 +364,11 @@
           </article>
 
           <article class="project-card reveal">
+            <div class="project-banner" style="background: linear-gradient(135deg, #064e3b, #065f46); color: #6ee7b7;">
+              <i class="fa-solid fa-leaf"></i>
+            </div>
             <div class="project-top">
-              <h3><i class="fa-solid fa-leaf"></i> Plant Disease Prediction</h3>
+              <h3>Plant Disease Prediction</h3>
               <span class="project-stack">TensorFlow • FastAPI • React.js</span>
             </div>
             <p>Built an image classification system for early plant disease prediction with a FastAPI backend and React frontend.</p>
@@ -368,8 +382,11 @@
           </article>
 
           <article class="project-card reveal">
+            <div class="project-banner" style="background: linear-gradient(135deg, #4c1d95, #312e81); color: #c4b5fd;">
+              <i class="fa-solid fa-building-columns"></i>
+            </div>
             <div class="project-top">
-              <h3><i class="fa-solid fa-building-columns"></i> Retail Banking System</h3>
+              <h3>Retail Banking System</h3>
               <span class="project-stack">Java • Spring Boot • REST APIs</span>
             </div>
             <p>Built a Spring Boot banking application with MVC architecture and core financial operations.</p>
@@ -383,14 +400,15 @@
           </article>
         </div>
 
-        <div class="deployed-projects reveal">
+        <div class="deployed-projects reveal" id="deployed-projects">
           <div class="deployed-projects-head">
-            <h3><i class="fa-solid fa-rocket"></i> Deployed Projects</h3>
+            <h3><i class="fa-solid fa-rocket" style="color: #60a5fa;"></i> Deployed Projects</h3>
             <p>Interactive model deployments with live prediction workflows and source code links.</p>
           </div>
 
           <div class="deployed-projects-grid">
             <article class="deployed-card">
+              <div class="live-badge"><div class="live-dot"></div> LIVE</div>
               <div class="deployed-icon deployed-icon-heart">
                 <i class="fa-solid fa-heart-pulse"></i>
               </div>
@@ -408,6 +426,7 @@
             </article>
 
             <article class="deployed-card">
+              <div class="live-badge"><div class="live-dot"></div> LIVE</div>
               <div class="deployed-icon deployed-icon-crop">
                 <i class="fa-solid fa-wheat-awn"></i>
               </div>
@@ -423,7 +442,9 @@
                 </div>
               </div>
             </article>
+            
             <article class="deployed-card">
+              <div class="live-badge"><div class="live-dot"></div> LIVE</div>
               <div class="deployed-icon" style="background: linear-gradient(135deg, rgba(167, 139, 250, 0.2), rgba(34, 211, 238, 0.16)); color: #c7d2fe;">
                 <i class="fa-solid fa-laptop"></i>
               </div>
@@ -597,6 +618,10 @@
             <div class="chips">
               <span class="chip"><i class="fa-brands fa-aws skill-icon"></i> AWS</span>
               <span class="chip"><i class="fa-brands fa-microsoft skill-icon"></i> Azure</span>
+              <span class="chip">
+                <svg viewBox="0 0 24 24" style="width: 1em; height: 1em;" fill="currentColor" class="skill-icon"><path d="M24 22.525H0l12-21.05 12 21.05z"/></svg> 
+                Vercel
+              </span>
               <span class="chip"><i class="fa-solid fa-chart-pie skill-icon"></i> Power BI</span>
               <span class="chip"><i class="fa-solid fa-shuffle skill-icon"></i> Alteryx</span>
               <span class="chip"><i class="fa-solid fa-wand-magic-sparkles skill-icon"></i> Power Automate</span>
@@ -617,33 +642,64 @@
         </div>
 
         <div class="edu-wrap">
-          <div class="edu-card reveal">
-            <div class="edu-top">
-              <div>
-                <h3><i class="fa-solid fa-graduation-cap"></i> Master of Computer Applications</h3>
-                <p>Dayananda Sagar College of Engineering</p>
+          <div class="edu-col">
+            <div class="edu-card reveal">
+              <div class="edu-top">
+                <div>
+                  <h3><i class="fa-solid fa-graduation-cap"></i> Master of Computer Applications</h3>
+                  <p>Dayananda Sagar College of Engineering</p>
+                </div>
+                <div class="chip">Aug 2023 – Aug 2025</div>
               </div>
-              <div class="chip">Aug 2023 – Aug 2025</div>
+              <p>CGPA: 9.19</p>
             </div>
-            <p>CGPA: 9.19</p>
-            <ul class="cert-list">
-              <li>LeetCode Knight (Top 6%)</li>
-              <li>Published research paper on AI in smart agriculture.</li>
-            </ul>
-            <div class="project-links project-links-spaced">
-              <a class="project-link-btn" href="http://theaspd.com/index.php/ijes/article/view/2466/1934" target="_blank" rel="noreferrer"><i class="fa-solid fa-file-lines"></i> View Paper</a>
+
+            <a href="https://leetcode.com/u/kamilperwez/" target="_blank" rel="noreferrer" class="achievement-card reveal" style="margin-top: 22px; text-decoration: none; display: flex;">
+              <div class="achievement-icon icon-gold"><i class="fa-solid fa-chess-knight"></i></div>
+              <div>
+                <strong style="color: #e0f2fe; display: block; font-size: 1.05rem;">LeetCode Knight</strong>
+                <span style="color: var(--muted); font-size: 0.9rem;">Achieved Top 6% Global Ranking on LeetCode</span>
+              </div>
+            </a>
+            
+            <div class="achievement-card reveal" style="margin-top: 16px;">
+              <div class="achievement-icon icon-blue"><i class="fa-solid fa-book-open-reader"></i></div>
+              <div>
+                <strong style="color: #e0f2fe; display: block; font-size: 1.05rem;">Research Publication</strong>
+                <span style="color: var(--muted); font-size: 0.9rem; display: block; margin: 4px 0 10px; line-height: 1.4;">"Artificial Intelligence In Smart Agriculture: Enhancing Efficiency And Sustainability With Novel Approaches"</span>
+                <a class="project-link-btn" style="padding: 6px 12px; font-size: 0.85rem;" href="http://theaspd.com/index.php/ijes/article/view/2466/1934" target="_blank" rel="noreferrer"><i class="fa-solid fa-file-lines"></i> View Paper</a>
+              </div>
             </div>
           </div>
 
           <div class="edu-card reveal">
             <h3><i class="fa-solid fa-certificate"></i> Certifications</h3>
-            <ul class="cert-list">
-              <li>CS50's Introduction to Programming with Python</li>
-              <li>AWS Certified: Cloud Practitioner, AI Practitioner</li>
-              <li>Microsoft Certified: Azure Fundamentals, Azure AI Fundamentals, Azure Data Fundamentals</li>
-              <li>Java DSA Course – Master the Fundamentals and Beyond</li>
-              <li>Stanford University – Introduction to Statistics</li>
-            </ul>
+            
+            <div class="cert-group" style="margin-top: 16px;">
+              <h4 style="color: #f59e0b;"><i class="fa-brands fa-aws"></i> Amazon Web Services</h4>
+              <ul class="cert-list" style="margin-top: 8px;">
+                <li>AWS Certified: Cloud Practitioner</li>
+                <li>AWS Certified: AI Practitioner</li>
+              </ul>
+            </div>
+            
+            <div class="cert-group" style="margin-top: 20px;">
+              <h4 style="color: #38bdf8;"><i class="fa-brands fa-microsoft"></i> Microsoft</h4>
+              <ul class="cert-list" style="margin-top: 8px;">
+                <li>Microsoft Certified: Azure Fundamentals</li>
+                <li>Microsoft Certified: Azure AI Fundamentals</li>
+                <li>Microsoft Certified: Azure Data Fundamentals</li>
+              </ul>
+            </div>
+            
+            <div class="cert-group" style="margin-top: 20px;">
+              <h4 style="color: #a78bfa;"><i class="fa-solid fa-laptop-code"></i> Core & Foundation</h4>
+              <ul class="cert-list" style="margin-top: 8px;">
+                <li>CS50's Introduction to Programming with Python</li>
+                <li>Java DSA Course – Master the Fundamentals and Beyond</li>
+                <li>Stanford University – Introduction to Statistics</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -747,7 +803,7 @@
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
     const navItems = document.querySelectorAll('.nav-links a');
-    const sections = document.querySelectorAll('section[id]');
+    const sections = document.querySelectorAll('section[id], div#deployed-projects');
     const revealItems = document.querySelectorAll('.reveal');
     const cursorGlow = document.getElementById('cursorGlow');
     const typedIntro = document.getElementById('typedIntro');
@@ -759,7 +815,11 @@
     }
 
     navItems.forEach(link => {
-      link.addEventListener('click', () => navLinks.classList.remove('open'));
+      link.addEventListener('click', () => {
+        if(window.innerWidth <= 920) {
+          navLinks.classList.remove('open');
+        }
+      });
     });
 
     const sectionObserver = new IntersectionObserver((entries) => {
