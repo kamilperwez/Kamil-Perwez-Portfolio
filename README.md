@@ -35,7 +35,7 @@ To view or modify this project on your local machine:
    ```bash
    cd Kamil-Perwez-Portfolio
    ```
-3. Open `index.html` in your preferred web browser. No build steps or package installations are required!
+3. Open `index.html` in your preferred web browser.No build steps or package installations are required!
 
 ## 📬 Let's Connect
 I am always open to discussing software development, data, AI, and automation opportunities. Let’s build something useful.
