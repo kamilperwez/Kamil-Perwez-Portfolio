@@ -2253,3 +2253,22 @@ footer {
 .deployed-card:hover {
   box-shadow: 0 20px 40px rgba(96, 165, 250, 0.15), 0 0 0 1px rgba(96, 165, 250, 0.4);
 }
+.profile-image-wrap {
+  width: 130px; /* Increased by another 25% */
+  height: 130px;
+  border-radius: 32px; /* Adjusted to keep the same smooth curve */
+  padding: 3px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  flex-shrink: 0;
+  animation: pulseRing 3.5s ease-in-out infinite;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 29px; /* Fits perfectly inside the 32px outer wrap */
+  background: #0a1322;
+}
+.profile-image-wrap { width: 110px; height: 110px; border-radius: 28px; }
+  .profile-image { border-radius: 25px; }
