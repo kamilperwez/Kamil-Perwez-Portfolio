@@ -536,7 +536,7 @@ header {
 .projects-grid,
 .contact-grid,
 .deployed-projects-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .skills-grid,
@@ -1545,16 +1545,10 @@ footer {
   .contact-form button, .project-links .project-link-btn, .hero-actions .btn { width: 100%; }
   .deployed-icon { width: 64px; height: 64px; font-size: 1.5rem; }
 }
-/* Force 3 columns for Deployed Projects on iPad Pro and larger tablets */
-@media (min-width: 830px) {
+/* Laptop / desktop: 2×2 grid for deployed projects */
+@media (min-width: 901px) {
   .deployed-projects-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  }
-}
-/* Force 3 columns for Deployed Projects on Desktop Views & Tablets */
-@media (min-width: 800px) {
-  .deployed-projects-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
 /* Fix squished buttons and word breaking */
